@@ -53,15 +53,20 @@ class Starting extends Scene
 		var i = 0;
 		for (log in logs)
 		{
-			new FlxTimer().start(FlxG.random.float(0, 0.1) * i, t ->
+			new FlxTimer().start(FlxG.random.float(0, 0.2) * i, t ->
 			{
 				addLine(current_line);
+
+				terminal_text.applyMarkup(terminal_text.text, [
+					new FlxTextFormatMarkerPair(new FlxTextFormat(FlxColor.RED, true, true), '<red>')
+				]);
+
 				current_line++;
 
 				if (current_line >= logs.length)
 				{
 					info('Completed Starting Scene');
-					FlxG.switchState(() -> new FlxState());
+					// FlxG.switchState(() -> new FlxState());
 				}
 			});
 
@@ -77,8 +82,5 @@ class Starting extends Scene
 		info('Adding line: ' + logs[index]);
 
 		terminal_text.text += logs[index] + "\n";
-		terminal_text.applyMarkup(terminal_text.text, [
-			new FlxTextFormatMarkerPair(new FlxTextFormat(FlxColor.RED, true, true), '<red>')
-		]);
 	}
 }
