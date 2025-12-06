@@ -91,7 +91,7 @@
 
 	<!--Place custom nodes like icons here-->
 
-	<define name="DISABLE_FEATURE_TRACES" unless="debug" />
-	<define name="FEATURE_TRACES" unless="DISABLE_FEATURE_TRACES"/>
-	
+	<define name="DISABLE_CONSOLE_LOGS" unless="debug" />
+	<define name="CONSOLE_LOGS" unless="DISABLE_CONSOLE_LOGS"/>
+
 </project>
