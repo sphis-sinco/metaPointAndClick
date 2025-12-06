@@ -21,22 +21,22 @@ class Declo extends FlxTypedSpriteGroup<FlxSprite>
 		mouth = new FlxSprite();
 		eyes = new FlxSprite();
 
-		setStates('smile', 'happy-open');
+		setStates('smile', 'happy-open', 'regular');
 
 		add(back);
 		add(mouth);
 		add(eyes);
 
-		dialogue = new FlxText();
+		dialogue = new FlxText(0,0,back.width * 4);
 		add(dialogue);
-		dialogue.alignment = CENTER;
 
 		shutUp();
 	}
 
-	public function setStates(?mouth_state:String, ?eye_state:String)
+	public function setStates(?mouth_state:String, ?eye_state:String, ?back_state:String)
 	{
-		back.loadGraphic('assets/images/declo/back.png');
+		if (back_state != null)
+			back.loadGraphic('assets/images/declo/back/' + back_state + '.png');
 		if (mouth_state != null)
 			mouth.loadGraphic('assets/images/declo/mouths/' + mouth_state + '.png');
 		if (eye_state != null)
@@ -50,7 +50,7 @@ class Declo extends FlxTypedSpriteGroup<FlxSprite>
 		mouth.setPosition(back.x, back.y);
 		eyes.setPosition(back.x, back.y);
 
-		dialogue.setPosition(back.x, back.getGraphicMidpoint().y - back.height * 2);
+		dialogue.setPosition(back.x - back.width / 8, back.y - (back.height * 2) - dialogue.height);
 	}
 
 	public var dialogue_anomaly:FlxSound = new FlxSound().loadStream('assets/sounds/anomaly_talk.wav');
