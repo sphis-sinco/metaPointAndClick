@@ -22,5 +22,8 @@ class DesktopMain extends Scene
 		declo.scale.set(2, 2);
 
         declo.setStates(null, 'happy-closed');
+
+        declo.sayDialogue('Hey!!!');
+        declo.speak();
 	}
 }
