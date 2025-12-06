@@ -69,7 +69,7 @@ class Starting extends Scene
 				if (current_line >= logs.length)
 				{
 					info('Completed Starting Scene');
-					// FlxG.switchState(() -> new FlxState());
+					FlxG.switchState(DesktopMain.new);
 				}
 			});
 
