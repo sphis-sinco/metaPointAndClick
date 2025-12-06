@@ -52,8 +52,13 @@ class Starting extends FlxState
 			{
 				addLine(current_line);
 				current_line++;
+
+                if (current_line >= logs.length)
+                {
+                    FlxG.switchState(() -> new FlxState());
+                }
 			});
-            
+
 			i++;
 		}
 	}
