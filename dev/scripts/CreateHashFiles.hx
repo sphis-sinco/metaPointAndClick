@@ -5,7 +5,7 @@ import haxe.crypto.Sha256;
 
 class CreateHashFiles
 {
-	static var path:String = '../../assets/data/hashes/';
+	static var path:String = 'assets/data/hashes/';
 
 	public static function main()
 	{
@@ -18,7 +18,7 @@ class CreateHashFiles
 		FileSystem.createDirectory(path);
 		var count:Int = Std.int(Math.random() * 50);
         var total_count = count;
-		
+
 		trace('Creating ' + total_count + ' hash files');
 
 		while (count > 0)
