@@ -16,7 +16,7 @@ class CreateHashFiles
 		}
 
 		FileSystem.createDirectory(path);
-		var count:Int = Std.int(Math.random() * 500);
+		var count:Int = Std.int(Math.random() * 50);
         var total_count = count;
 		
 		trace('Creating ' + total_count + ' hash files');
