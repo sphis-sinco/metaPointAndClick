@@ -9,14 +9,18 @@ class DesktopMain extends Scene
 		super('desktop_main');
 	}
 
-    public var declo:Declo;
+	public var declo:Declo;
 
-    override function create() {
-        super.create();
+	override function create()
+	{
+		super.create();
 
-        declo = new Declo();
-        add(declo);
-        
-        declo.screenCenter();
-    }
+		declo = new Declo();
+		add(declo);
+
+		declo.screenCenter();
+		declo.scale.set(2, 2);
+
+        declo.setStates(null, 'happy-closed');
+	}
 }
