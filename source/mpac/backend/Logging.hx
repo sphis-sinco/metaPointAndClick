@@ -21,12 +21,12 @@ class Logging
 
 		if (print_data != null)
 		{
-			log += '[' + print_data.type.toUpperCase();
+			log += '[ ' + print_data.type.toUpperCase();
 
 			if (print_data.class_id != null)
 				log += ' | ' + print_data.class_id;
 
-			log += '] : ';
+			log += ' ] : ';
 		}
 
 		log += data;
