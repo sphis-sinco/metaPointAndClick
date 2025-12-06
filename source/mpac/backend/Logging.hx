@@ -15,7 +15,7 @@ typedef PrintData =
 
 class Logging
 {
-	public static function log(data:Dynamic, ?print_data:PrintDataWithType)
+	static function log(data:Dynamic, ?print_data:PrintDataWithType)
 	{
 		var log:String = '';
 

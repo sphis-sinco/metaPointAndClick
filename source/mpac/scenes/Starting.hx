@@ -1,5 +1,6 @@
 package mpac.scenes;
 
+import flixel.FlxState;
 import flixel.FlxG;
 import flixel.util.FlxTimer;
 import flixel.util.FlxColor;
@@ -59,7 +60,7 @@ class Starting extends Scene
 
 				if (current_line >= logs.length)
 				{
-					log('Completed Starting Scene');
+					info('Completed Starting Scene');
 					FlxG.switchState(() -> new FlxState());
 				}
 			});
@@ -73,7 +74,7 @@ class Starting extends Scene
 		if (logs[index] == null)
 			return;
 
-		log('Adding line: ' + logs[index]);
+		info('Adding line: ' + logs[index]);
 
 		terminal_text.text += logs[index] + "\n";
 		terminal_text.applyMarkup(terminal_text.text, [

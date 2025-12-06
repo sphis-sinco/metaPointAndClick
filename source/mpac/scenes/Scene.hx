@@ -13,8 +13,8 @@ class Scene extends FlxState
 		super();
 	}
 
-	public function log(data:Dynamic)
-		data.log({
+	public function info(data:Dynamic)
+		data.info({
 			class_id: this.class_id
 		});
 

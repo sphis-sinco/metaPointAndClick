@@ -10,7 +10,7 @@ class Init extends FlxState
 	{
 		super.create();
 
-		'leaving'.log({
+		'leaving'.info({
 			class_id: 'init'
 		});
 		FlxG.switchState(Starting.new);
