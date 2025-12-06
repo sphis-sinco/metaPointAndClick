@@ -47,11 +47,11 @@ class Logging
 	}
 
 	public static function info(data:Dynamic, ?print_data:PrintData)
-		logTypeBase("info", data, print_data);
+		logTypeBase('info', data, print_data);
 
 	public static function error(data:Dynamic, ?print_data:PrintData)
-		logTypeBase("error", data, print_data);
+		logTypeBase('error', data, print_data);
 
 	public static function warning(data:Dynamic, ?print_data:PrintData)
-		logTypeBase("warning", data, print_data);
+		logTypeBase('warning', data, print_data);
 }
