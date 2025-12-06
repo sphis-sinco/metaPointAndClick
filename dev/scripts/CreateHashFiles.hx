@@ -28,7 +28,7 @@ class CreateHashFiles
 
 			count--;
 		}
-		var symbols = ' abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()`~-=_+[]\\{}|;\':",./<>?';
+		var symbols = ' abcdefghijklmnopqrstuvwxyz1234567890';
 		sys.io.File.saveContent(path + symbols.charAt(Std.int(Math.random() * symbols.length)) + '.hashfile', 'Anomaly is lose. Find and capture it.');
 		
 		trace('Finished creating hash files');
