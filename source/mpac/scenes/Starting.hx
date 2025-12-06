@@ -22,8 +22,17 @@ class Starting extends Scene
 	{
 		super('starting');
 
-		for (file in new ZipFileSystem({}).readDirectory('assets/data/hashes/'))
-			logs.push('Parsed hash: ' + file);
+		var zip_file_system = new ZipFileSystem({});
+
+		var total_hash = zip_file_system.readDirectory('assets/data/hashes/').length;
+		var i = 0;
+
+		logs.push(total_hash + ' hash files to parse');
+		for (hash_file in zip_file_system.readDirectory('assets/data/hashes/'))
+		{
+			i++;
+			logs.push('Parsed hash: ' + hash_file + ' ( ' + i + ' / ' + total_hash + ' )');
+		}
 	}
 
 	public var cam_follow:FlxObject;
@@ -47,7 +56,7 @@ class Starting extends Scene
 				addLine(current_line);
 
 				terminal_text.applyMarkup(terminal_text.text, [
-					new FlxTextFormatMarkerPair(new FlxTextFormat(FlxColor.RED, true, true), '<red>')
+					new FlxTextFormatMarkerPair(new FlxTextFormat(FlxColor.RED, true, true), '<red>'),
 				]);
 
 				current_line++;
