@@ -1,5 +1,6 @@
 package mpac.scenes;
 
+import flixel.FlxObject;
 import polymod.fs.ZipFileSystem;
 import polymod.fs.MemoryZipFileSystem;
 import flixel.FlxState;
@@ -11,9 +12,7 @@ import lime.app.Application;
 
 class Starting extends Scene
 {
-	public var logs:Array<String> = [
-		'Lutihenx Terminal v3.4 — Initializing...'
-	];
+	public var logs:Array<String> = ['Lutihenx Terminal v3.4 — Initializing...'];
 
 	public var terminal_text:FlxText;
 
@@ -26,6 +25,8 @@ class Starting extends Scene
 		for (file in new ZipFileSystem({}).readDirectory('assets/data/hashes/'))
 			logs.push('Parsed hash: ' + file);
 	}
+
+	public var cam_follow:FlxObject;
 
 	override function create()
 	{
@@ -60,6 +61,12 @@ class Starting extends Scene
 
 			i++;
 		}
+
+		cam_follow = new FlxObject();
+		add(cam_follow);
+		cam_follow.setPosition(FlxG.width / 2, FlxG.height / 2);
+
+		FlxG.camera.follow(cam_follow, LOCKON, .5);
 	}
 
 	public function addLine(index:Int)
@@ -69,9 +76,10 @@ class Starting extends Scene
 
 		info('Adding line: ' + logs[index]);
 
+		var prev_h = terminal_text.height;
 		terminal_text.text += logs[index] + '\n';
 
 		if (index > 70)
-			FlxG.camera.y -= 8;
+			cam_follow.y += terminal_text.height - prev_h;
 	}
 }
