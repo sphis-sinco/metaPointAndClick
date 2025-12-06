@@ -66,7 +66,7 @@ class Declo extends FlxTypedSpriteGroup<FlxSprite>
 	{
 		shutUp();
 
-		if (anomaly)
+		if (!anomaly)
 			dialogue_declo.play();
 		else
 			dialogue_anomaly.play();
