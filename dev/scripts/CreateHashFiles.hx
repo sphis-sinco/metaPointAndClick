@@ -23,7 +23,7 @@ class CreateHashFiles
 
 		while (count > 0)
 		{
-			var hash:String = Sha256.encode('h: ' + Math.random() * 463);
+			var hash:String = Sha256.encode('h: ' + Math.random() * 900000000000);
 			sys.io.File.saveContent(path + hash + '.hashfile', hash);
 
 			count--;
