@@ -1,5 +1,9 @@
 package mpac.scenes;
 
+import flixel.FlxG;
+import flixel.util.FlxTimer;
+import flixel.util.FlxColor;
+import flixel.text.FlxText;
 import lime.app.Application;
 import flixel.FlxState;
 
@@ -26,10 +30,42 @@ class Starting extends FlxState
 		"<red>ATTEMPT: hijack_boot_sequence >> BLOCKED BY USER PRESENCE<red>"
 	];
 
+	public var terminal_text:FlxText;
+
+	public var current_line:Int = 0;
+
 	override function create()
 	{
 		super.create();
 
 		Application.current.window.title = 'Material Phenomenon Anomaly Control';
+
+		terminal_text = new FlxText();
+		add(terminal_text);
+
+		terminal_text.setPosition(2, 2);
+
+		var i = 0;
+		for (log in logs)
+		{
+			new FlxTimer().start(FlxG.random.float(0, 0.1) * i, t ->
+			{
+				addLine(current_line);
+				current_line++;
+			});
+            
+			i++;
+		}
+	}
+
+	public function addLine(index:Int)
+	{
+		if (logs[index] == null)
+			return;
+
+		terminal_text.text += logs[index] + "\n";
+		terminal_text.applyMarkup(terminal_text.text, [
+			new FlxTextFormatMarkerPair(new FlxTextFormat(FlxColor.RED, true, true), '<red>')
+		]);
 	}
 }
