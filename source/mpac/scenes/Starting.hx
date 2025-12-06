@@ -56,7 +56,7 @@ class Starting extends Scene
 		var i = 0;
 		for (log in logs)
 		{
-			new FlxTimer().start(FlxG.random.float(0, 0.2) * i, t ->
+			new FlxTimer().start(FlxG.random.float(0, 0.1) * i, t ->
 			{
 				addLine(current_line);
 
