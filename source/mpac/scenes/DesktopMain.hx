@@ -1,5 +1,6 @@
 package mpac.scenes;
 
+import flixel.util.FlxColor;
 import mpac.objects.Declo;
 
 class DesktopMain extends Scene
@@ -25,5 +26,6 @@ class DesktopMain extends Scene
 
         declo.sayDialogue('Hey!!!');
         declo.speak();
+        declo.dialogue.color = FlxColor.WHITE;
 	}
 }
