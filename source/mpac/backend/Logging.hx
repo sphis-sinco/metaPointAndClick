@@ -24,9 +24,9 @@ class Logging
 			log += '[' + print_data.type.toUpperCase();
 
 			if (print_data.class_id != null)
-				log += ' // ' + print_data.class_id;
+				log += ' | ' + print_data.class_id;
 
-			log += ']\t';
+			log += '] :';
 		}
 
 		log += data;
