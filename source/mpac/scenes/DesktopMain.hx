@@ -25,7 +25,6 @@ class DesktopMain extends Scene
         declo.setStates(null, 'happy-closed');
 
         declo.sayDialogue('Hey!!!');
-        declo.speak();
         declo.dialogue.color = FlxColor.WHITE;
 	}
 }
