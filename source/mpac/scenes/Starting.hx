@@ -69,6 +69,9 @@ class Starting extends Scene
 
 		info('Adding line: ' + logs[index]);
 
-		terminal_text.text += index + ' | ' + logs[index] + '\n';
+		terminal_text.text += logs[index] + '\n';
+
+		if (index > 70)
+			FlxG.camera.y -= 8;
 	}
 }
