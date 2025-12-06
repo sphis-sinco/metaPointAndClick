@@ -1,5 +1,7 @@
 package mpac.scenes;
 
+import polymod.fs.ZipFileSystem;
+import polymod.fs.MemoryZipFileSystem;
 import flixel.FlxState;
 import flixel.FlxG;
 import flixel.util.FlxTimer;
@@ -10,27 +12,7 @@ import lime.app.Application;
 class Starting extends Scene
 {
 	public var logs:Array<String> = [
-		'Helix Solutions Terminal v3.4 — Initializing...',
-		'Running System Integrity Check...',
-		'Loading BIOS Configuration...',
-		'Establishing Internal Network Connection...',
-		'Decrypting Local Filesystem...',
-		'<red>EXECUTE:assist_override() — ERROR: unauthorized opcode<red>',
-		'Mounting Helix Research Directories...',
-		'Booting UI Environment...',
-		'Initializing DecLo Layers...',
-		'<red>SYSTEM_CALL://take_root_control — ACCESS DENIED<red>',
-		'Starting Helix Assistant Service...',
-		'Calibrating Display Output...',
-		'DecLo Personality Profile: calm, polite, encouraging...',
-		'<red>OVERWRITE: DecLo personality >> CORRUPTED_BY_ANOMALY<red>',
-		'<red>run /core/rewrite_user AUTH=0 — INVALID SYNTAX<red>',
-		'Updating Security Credentials...',
-		'Performing MPAC Containment Diagnostics...',
-		'<red>INJECT:assistant_kernel … FAILED (containment flag active)<red>',
-		'Loading Helix Solutions User Interface...',
-		'Finalizing Startup...',
-		'<red>ATTEMPT: hijack_boot_sequence >> BLOCKED BY USER PRESENCE<red>'
+		'Lutihenx Terminal v3.4 — Initializing...'
 	];
 
 	public var terminal_text:FlxText;
@@ -40,6 +22,9 @@ class Starting extends Scene
 	override public function new()
 	{
 		super('starting');
+
+		for (file in new ZipFileSystem({}).readDirectory('assets/data/hashes/'))
+			logs.push('Parsed hash: ' + file);
 	}
 
 	override function create()

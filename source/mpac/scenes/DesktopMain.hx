@@ -30,7 +30,7 @@ class DesktopMain extends Scene
 
 		FlxTimer.wait(1, () ->
 		{
-			declo.sayDialogue('Welcome to the Helix Solutions Terminal!');
+			declo.sayDialogue('Welcome to the Lutihenx Terminal!');
 		});
 		FlxTimer.wait(1.5, () ->
 		{
