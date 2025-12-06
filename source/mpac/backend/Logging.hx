@@ -26,7 +26,7 @@ class Logging
 			if (print_data.class_id != null)
 				log += ' | ' + print_data.class_id;
 
-			log += '] :';
+			log += '] : ';
 		}
 
 		log += data;
