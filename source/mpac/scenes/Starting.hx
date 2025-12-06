@@ -5,9 +5,8 @@ import flixel.util.FlxTimer;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
 import lime.app.Application;
-import flixel.FlxState;
 
-class Starting extends FlxState
+class Starting extends Scene
 {
 	public var logs:Array<String> = [
 		"Helix Solutions Terminal v3.4 — Initializing...",
@@ -34,6 +33,11 @@ class Starting extends FlxState
 
 	public var current_line:Int = 0;
 
+	override public function new()
+	{
+		super('starting');
+	}
+
 	override function create()
 	{
 		super.create();
@@ -53,10 +57,11 @@ class Starting extends FlxState
 				addLine(current_line);
 				current_line++;
 
-                if (current_line >= logs.length)
-                {
-                    FlxG.switchState(() -> new FlxState());
-                }
+				if (current_line >= logs.length)
+				{
+					log('Completed Starting Scene');
+					FlxG.switchState(() -> new FlxState());
+				}
 			});
 
 			i++;
@@ -67,6 +72,8 @@ class Starting extends FlxState
 	{
 		if (logs[index] == null)
 			return;
+
+		log('Adding line: ' + logs[index]);
 
 		terminal_text.text += logs[index] + "\n";
 		terminal_text.applyMarkup(terminal_text.text, [
